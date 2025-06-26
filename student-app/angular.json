@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "student-management-frontend": {
+    "student-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -26,12 +26,7 @@
             ],
             "styles": [
               "src/styles.css"
-            ],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            ]
           },
           "configurations": {
             "production": {
@@ -61,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "student-management-frontend:build:production"
+              "buildTarget": "student-app:build:production"
             },
             "development": {
-              "buildTarget": "student-management-frontend:build:development"
+              "buildTarget": "student-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -95,6 +90,6 @@
     }
   },
   "cli": {
-    "analytics": "1820afc2-5c5e-4c2a-acbc-d84feef317b1"
+    "analytics": "551d97c8-8d3d-44e0-a847-27bf995d50e3"
   }
 }

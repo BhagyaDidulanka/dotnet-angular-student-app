@@ -10,10 +10,11 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular",
         builder => builder
-            .WithOrigins("http://localhost:4200") // Angular dev server
+            .WithOrigins("http://localhost:4200", "https://localhost:4200") 
             .AllowAnyMethod()
             .AllowAnyHeader()
-            .AllowCredentials());
+            .AllowCredentials()
+            .SetIsOriginAllowedToAllowWildcardSubdomains());
 });
 
 // Add services to the container.
