@@ -9,13 +9,11 @@ import { HttpClientModule } from '@angular/common/http';
   selector: 'app-course-assign',
   standalone: true,
   imports: [
-    CommonModule,
-    FormsModule,
-    HttpClientModule
-  ],
+    CommonModule,FormsModule,HttpClientModule],
   templateUrl: './course-assign.component.html',
   styleUrls: ['./course-assign.component.css']
 })
+
 export class CourseAssignComponent implements OnInit {
   studentId: number = 0;
   courseId: number = 0;

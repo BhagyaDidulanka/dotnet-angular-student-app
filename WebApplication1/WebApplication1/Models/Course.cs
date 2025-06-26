@@ -5,5 +5,6 @@
         public int Id { get; set; }
         public string CourseName { get; set; }
         public List<StudentCourse> StudentCourses { get; set; }
+
     }
 }
