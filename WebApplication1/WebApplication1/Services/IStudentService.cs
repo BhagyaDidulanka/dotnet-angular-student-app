@@ -9,5 +9,6 @@ namespace WebApplication1.Services
         Task<Student> AddStudent(StudentDto studentDto);
         Task AssignCourse(int studentId, int courseId);
         Task DeleteStudent(int id);
+        Task<StudentDto> UpdateStudent(int id, StudentDto studentDto);
     }
 }

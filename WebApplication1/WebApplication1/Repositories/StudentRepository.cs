@@ -47,5 +47,12 @@ namespace WebApplication1.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task<Student> UpdateStudent(Student student)
+        {
+            _context.Students.Update(student);
+            await _context.SaveChangesAsync();
+            return student;
+        }
     }
 }

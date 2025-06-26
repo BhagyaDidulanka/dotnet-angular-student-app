@@ -32,5 +32,19 @@ namespace WebApplication1.Controllers
             await _service.DeleteStudent(id);
             return NoContent();
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, StudentDto dto)
+        {
+            try
+            {
+                var updatedStudent = await _service.UpdateStudent(id, dto);
+                return Ok(updatedStudent);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
     }
 }
