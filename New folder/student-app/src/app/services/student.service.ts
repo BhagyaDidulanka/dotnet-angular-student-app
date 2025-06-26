@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Student, StudentDto, CourseAssignment } from '../models/student.model';
 import { environment } from '../../environments/environment';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class StudentService {
@@ -10,22 +10,10 @@ export class StudentService {
 
   constructor(private http: HttpClient) {}
 
-  // getStudents(name: string = ''): Observable<Student[]> {
-  //   return this.http.get<Student[]>(this.apiUrl);
-  // }
-
   getStudents(name: string = ''): Observable<Student[]> {
-    let url = this.apiUrl;
-    if (name) {
-      url += `?name=${encodeURIComponent(name)}`;
-    }
-    return this.http.get<Student[]>(url).pipe(
-      catchError(error => {
-        console.error('Error searching students:', error);
-        return throwError(()=> error);
-      })
-    );
+    return this.http.get<Student[]>(this.apiUrl);
   }
+
   addStudent(student: StudentDto): Observable<Student> {
     console.log('Adding student:', student.email);
     return this.http.post<Student>(this.apiUrl, student);

@@ -4,7 +4,6 @@ import { Student } from '../../models/student.model';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-student-list',
@@ -16,21 +15,8 @@ import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
 export class StudentListComponent implements OnInit {
   students: Student[] = [];
   searchTerm = '';
-  searchTerm$ = new Subject<string>();
 
-  
-  constructor(private studentService: StudentService) {
-    this.searchTerm$.pipe(
-      debounceTime(300),       
-      distinctUntilChanged()   
-    ).subscribe(term => {
-      this.searchTerm = term;
-      this.loadStudents();
-    });
-  }
-
-
-
+  constructor(private studentService: StudentService) {}
 
   ngOnInit(): void {
     this.loadStudents();

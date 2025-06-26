@@ -21,6 +21,7 @@ namespace WebApplication1.Services
 
         public async Task<List<Student>> GetStudents(string name) => await _repo.GetStudents(name);
 
+
         public async Task<Student> AddStudent(StudentDto dto)
         {
             var student = _mapper.Map<Student>(dto);
@@ -37,7 +38,7 @@ namespace WebApplication1.Services
             var existingStudent = await _context.Students.FindAsync(id);
             if (existingStudent == null)
                 throw new KeyNotFoundException($"Student with ID {id} not found");
-
+              
             // 2. Map DTO to existing entity
             _mapper.Map(studentDto, existingStudent);
 
