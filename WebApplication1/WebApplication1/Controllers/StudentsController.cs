@@ -26,5 +26,11 @@ namespace WebApplication1.Controllers
             await _service.AssignCourse(studentId, courseId);
             return Ok();
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _service.DeleteStudent(id);
+            return NoContent();
+        }
     }
 }

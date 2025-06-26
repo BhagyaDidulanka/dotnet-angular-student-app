@@ -8,5 +8,6 @@ namespace WebApplication1.Services
         Task<List<Student>> GetStudents(string name);
         Task<Student> AddStudent(StudentDto studentDto);
         Task AssignCourse(int studentId, int courseId);
+        Task DeleteStudent(int id);
     }
 }

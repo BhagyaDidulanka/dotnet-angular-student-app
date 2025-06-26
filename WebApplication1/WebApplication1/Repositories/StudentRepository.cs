@@ -30,5 +30,22 @@ namespace WebApplication1.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task DeleteStudent(int id)
+        {
+            var student = await _context.Students.FindAsync(id);
+            if (student != null)
+            {
+                
+                var studentCourses = await _context.StudentCourses
+                    .Where(sc => sc.StudentId == id)
+                    .ToListAsync();
+                _context.StudentCourses.RemoveRange(studentCourses);
+
+                
+                _context.Students.Remove(student);
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }

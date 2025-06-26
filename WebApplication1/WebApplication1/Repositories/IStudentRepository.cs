@@ -7,5 +7,6 @@ namespace WebApplication1.Repositories
         Task<List<Student>> GetStudents(string name);
         Task<Student> AddStudent(Student student);
         Task AssignCourse(int studentId, int courseId);
+        Task DeleteStudent(int id);
     }
 }

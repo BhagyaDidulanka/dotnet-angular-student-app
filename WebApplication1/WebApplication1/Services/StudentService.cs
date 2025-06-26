@@ -25,5 +25,10 @@ namespace WebApplication1.Services
         }
 
         public async Task AssignCourse(int studentId, int courseId) => await _repo.AssignCourse(studentId, courseId);
+
+        public async Task DeleteStudent(int id)
+        {
+            await _repo.DeleteStudent(id);
+        }
     }
 }
